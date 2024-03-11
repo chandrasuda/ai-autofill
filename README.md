@@ -1,6 +1,6 @@
 # Document Question Answering Chrome Extension
 
-This Chrome extension allows researchers to upload relevant documents and use a local LLM (Large Language Model) AI model to automatically answer questions and autofill forms on websites. By leveraging the power of natural language processing and the Retrieval-Augmented Generation (RAG) technique, this extension aims to streamline the process of completing repetitive paperwork, saving researchers valuable time and enabling them to focus more on their core research activities.
+This Chrome (built for Chromium based browsers) extension allows researchers to upload relevant documents and use a local LLM (Large Language Model) AI model to automatically answer questions and autofill forms on websites. By leveraging the power of natural language processing and the Retrieval-Augmented Generation (RAG) technique, this extension aims to streamline the process of completing repetitive paperwork, saving researchers valuable time and enabling them to focus more on their core research activities.
 
 ## Features
 
