@@ -29,7 +29,4 @@ To use this extension, follow these steps:
 5. Upload relevant documents related to your research projects.
 6. Start interacting with input fields and textareas on websites, and let the extension autofill the answers based on the uploaded documents.
 
-For more detailed instructions and advanced configuration options, please refer to the project's documentation.
-
-
 Developed by Chandra Suda
