@@ -1,0 +1,20 @@
+{
+  "manifest_version": 2,
+  "name": "Document Question Answering Extension",
+  "version": "1.2",
+  "description": "Upload a document and get questions answered on websites using AI",
+  "permissions": ["activeTab", "storage", "unlimitedStorage"],
+  "browser_action": {
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ],
+  "web_accessible_resources": ["model/*"]
+}
