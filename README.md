@@ -26,7 +26,10 @@ To use this extension, follow these steps:
 1. Clone the repository or download the source code.
 2. Build and package the extension according to the Chrome extension guidelines.
 3. Load the packaged extension into your Chrome browser.
-4. Upload relevant documents related to your research projects.
-5. Start interacting with input fields and textareas on websites, and let the extension autofill the answers based on the uploaded documents.
+5. Upload relevant documents related to your research projects.
+6. Start interacting with input fields and textareas on websites, and let the extension autofill the answers based on the uploaded documents.
 
 For more detailed instructions and advanced configuration options, please refer to the project's documentation.
+
+
+Developed by Chandra Suda
