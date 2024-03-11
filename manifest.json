@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "Document Question Answering Extension",
   "version": "1.2",
-  "description": "Upload a document and get questions answered on websites using AI",
+  "description": "Upload a document and have questions auto-filled on websites using AI copilot",
   "permissions": ["activeTab", "storage", "unlimitedStorage"],
   "browser_action": {
     "default_popup": "popup.html"
