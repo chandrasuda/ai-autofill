@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harvard ESTR - Forms</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Harvard ESTR - Forms</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#irb-form">IRB Form</a></li>
+            <li><a href="#dua-form">DUA Form</a></li>
+            <li><a href="#data-safety-form">Data Safety Form</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="irb-form">
+            <h2>IRB Form</h2>
+            <form>
+                <label for="title">Title of study:</label><br>
+                <input type="text" id="title" name="title" style="width: 100%;"><br>
+        
+                <label for="short-title">Short title:</label><br>
+                <input type="text" id="short-title" name="short-title" style="width: 100%;"><br>
+        
+                <label for="description">Brief description or abstract:</label><br>
+                <textarea id="description" name="description" rows="5" style="width: 100%;"></textarea><br>
+        
+                <label for="study-type">What kind of study is this?</label><br>
+                <select id="study-type" name="study-type" style="width: 100%;">
+                    <option value="Single-site study">Single-site study</option>
+                    <option value="Multi-site or collaborative">Multi-site or collaborative</option>
+                    <option value="Collaborative">Collaborative</option>
+                </select><br>
+        
+                <label for="external-irb">Will an external IRB act as the IRB of record for this study? (Yes/No)</label><br>
+                <div>
+                    <input type="radio" id="external-irb-yes" name="external-irb" value="Yes">
+                    <label for="external-irb-yes">Yes</label><br>
+                    <input type="radio" id="external-irb-no" name="external-irb" value="No">
+                    <label for="external-irb-no">No</label><br>
+                </div>
+        
+                <label for="principal-investigator">Local principal investigator:</label><br>
+                <input type="text" id="principal-investigator" name="principal-investigator" style="width: 100%;"><br>
+        
+                <label for="financial-interest">Does the local principal investigator have a financial interest related to this research? (Yes/No)</label><br>
+                <div>
+                    <input type="radio" id="financial-interest-yes" name="financial-interest" value="Yes">
+                    <label for="financial-interest-yes">Yes</label><br>
+                    <input type="radio" id="financial-interest-no" name="financial-interest" value="No">
+                    <label for="financial-interest-no">No</label><br>
+                </div>
+        
+                <label for="study-department">Study's Department:</label><br>
+                <input type="text" id="study-department" name="study-department" style="width: 100%;"><br>
+        
+                <label for="research-protocol">Attach Research Protocol or relevant Request Form:</label><br>
+                <input type="file" id="research-protocol" name="research-protocol"><br>
+        
+                <label for="grant-proposal">List any grant proposals submitted:</label><br>
+                <textarea id="grant-proposal" name="grant-proposal" rows="3" style="width: 100%;"></textarea><br>
+        
+                <label for="financial-support">List any financial support from non-sponsored sources:</label><br>
+                <textarea id="financial-support" name="financial-support" rows="3" style="width: 100%;"></textarea><br>
+        
+                <label for="study-team-members">List study team members:</label><br>
+                <textarea id="study-team-members" name="study-team-members" rows="3" style="width: 100%;"></textarea><br>
+        
+                <label for="study-documents">Attach relevant study team documents:</label><br>
+                <input type="file" id="study-documents" name="study-documents"><br>
+        
+                <label for="study-drug">Does the study involve the use of a DRUG?</label><br>
+                <div>
+                    <input type="radio" id="study-drug-yes" name="study-drug" value="Yes">
+                    <label for="study-drug-yes">Yes</label><br>
+                    <input type="radio" id="study-drug-no" name="study-drug" value="No">
+                    <label for="study-drug-no">No</label><br>
+                </div>
+        
+                <label for="study-device">Does the study evaluate the safety or effectiveness of a DEVICE? (1) by using the device in one or more persons, (2) by using human specimens with the device, or (3) through the use of data from the device?</label><br>
+                <div>
+                    <input type="radio" id="study-device-yes" name="study-device" value="Yes">
+                    <label for="study-device-yes">Yes</label><br>
+                    <input type="radio" id="study-device-no" name="study-device" value="No">
+                    <label for="study-device-no">No</label><br>
+                </div>
+        
+                <label for="research-locations">Identify other research locations:</label><br>
+                <textarea id="research-locations" name="research-locations" rows="3" style="width: 100%;"></textarea><br>
+        
+                <label for="site-documents">Attach local site documents:</label><br>
+                <input type="file" id="site-documents" name="site-documents"><br>
+            </form>
+        </section>
+        
+        
+
+        <section id="dua-form" style="display: none;">
+            <h2>DUA Form</h2>
+            <form>
+                <h3>Agreement Upload</h3>
+                <ol>
+                    <li><strong>* Principal Investigator/Agreement Manager:</strong><br>
+                        <input type="text" id="pi-agreement-manager" name="pi-agreement-manager"></li>
+                    <li><strong>* Agreement Creator/Primary Contact:</strong><br>
+                        <input type="text" id="agreement-creator" name="agreement-creator"></li>
+                    <li><strong>* Upload agreement draft:</strong><br>
+                        <input type="file" id="upload-agreement" name="upload-agreement"><br>
+                        <input type="checkbox" id="no-agreement" name="no-agreement">
+                        <label for="no-agreement">Mark here if no agreement to upload or for Harvard to generate first draft.</label></li>
+                    <li><strong>* Harvard project title:</strong><br>
+                        <input type="text" id="harvard-project-title" name="harvard-project-title"></li>
+                    <li><strong>* Agreement type:</strong><br>
+                        <input type="text" id="agreement-type" name="agreement-type"></li>
+                    <li><strong>* Provide a description of the project:</strong><br>
+                        <textarea id="project-description" name="project-description" rows="5"></textarea></li>
+                    <li><strong>Supporting documents:</strong><br>
+                        <input type="text" id="supporting-documents" name="supporting-documents"></li>
+                    <li><strong>* Responsible Department:</strong><br>
+                        <input type="text" id="responsible-department" name="responsible-department"></li>
+                </ol>
+        
+                <h3>General Information</h3>
+                <ol>
+                    <li><strong>* Select the contracting party:</strong><br>
+                        <input type="text" id="contracting-party" name="contracting-party"></li>                            
+                    <li><strong>Contracting party contact name:</strong><br>
+                        <input type="text" id="contracting-party-contact-name" name="contracting-party-contact-name"></li>
+                    <li><strong>Contracting party contact e-mail:</strong><br>
+                        <input type="email" id="contracting-party-contact-email" name="contracting-party-contact-email"></li>
+                    <li><strong>Contracting party contact phone:</strong><br>
+                        <input type="tel" id="contracting-party-contact-phone" name="contracting-party-contact-phone"></li>
+                </ol>
+        
+                <h3>Agreement Information</h3>
+                <ol>
+                    <li><strong>* Describe the data to be shared:</strong><br>
+                        <textarea id="data-description" name="data-description" rows="5"></textarea></li>
+                    <li><strong>* Is this expected to include international data?</strong><br>
+                        <input type="radio" id="international-data-yes" name="international-data" value="Yes">
+                        <label for="international-data-yes">Yes</label>
+                        <input type="radio" id="international-data-no" name="international-data" value="No">
+                        <label for="international-data-no">No</label></li>
+                    <li><strong>* How long would you like access to the data (in years)?</strong><br>
+                        <input type="number" id="data-access-duration" name="data-access-duration"></li>
+                    <li><strong>* Are there any anticipated fees for the data?</strong><br>
+                        <input type="radio" id="anticipated-fees-yes" name="anticipated-fees" value="Yes">
+                        <label for="anticipated-fees-yes">Yes</label>
+                        <input type="radio" id="anticipated-fees-no" name="anticipated-fees" value="No">
+                        <label for="anticipated-fees-no">No</label></li>
+                    <li><strong>* Are there any sponsored funding sources for this project?</strong><br>
+                        <input type="radio" id="sponsored-funding-yes" name="sponsored-funding" value="Yes">
+                        <label for="sponsored-funding-yes">Yes</label>
+                        <input type="radio" id="sponsored-funding-no" name="sponsored-funding" value="No">
+                        <label for="sponsored-funding-no">No</label></li>
+                    <li><strong>If there are any other known agreements applicable to the project/DUA (such as any NDA, MTA, or License Agreement), please describe:</strong><br>
+                        <textarea id="other-agreements-description" name="other-agreements-description" rows="5"></textarea></li>
+                </ol>
+        
+                <h3>Additional Information</h3>
+                <ol>
+                    <li><strong>* Which institution is providing the data?</strong><br>
+                        <input type="text" id="data-provider" name="data-provider"></li>
+                    <li><strong>* Will the data be stored or managed at Harvard or otherwise using Harvard resources?</strong><br>
+                        <input type="radio" id="data-storage-yes" name="data-storage" value="Yes">
+                        <label for="data-storage-yes">Yes</label>
+                        <input type="radio" id="data-storage-no" name="data-storage" value="No">
+                        <label for="data-storage-no">No</label></li>
+                    <li><strong>* Will any incoming data be made available to non-Harvard personnel?</strong><br>
+                        <input type="radio" id="external-data-access-yes" name="external-data-access" value="Yes">
+                        <label for="external-data-access-yes">Yes</label>
+                        <input type="radio" id="external-data-access-no" name="external-data-access" value="No">
+                        <label for="external-data-access-no">No</label></li>
+                    <li><strong>Describe any confidentiality concerns that should be considered as part of this agreement:</strong><br>
+                        <textarea id="confidentiality-concerns" name="confidentiality-concerns" rows="5"></textarea></li>
+                </ol>
+            </form>
+        </section>
+
+        <section id="data-safety-form" style="display: none;">
+            <h2>Data Safety Form</h2>
+            <form>
+                <h3>Basic Information</h3>
+                <ol>
+                    <li><strong>* Submission title:</strong><br>
+                        <input type="text" id="submission-title" name="submission-title" value="Trial"></li>
+                    <li><strong>* Principal Investigator:</strong><br>
+                        <input type="text" id="principal-investigator" name="principal-investigator" value="Kathryn Hanly"></li>
+                    <li><strong>Primary contact:</strong><br>
+                        <input type="text" id="primary-contact" name="primary-contact" value="Note that this person will not be able to edit or comment."></li>
+                    <li><strong>* Responsible department:</strong><br>
+                        <input type="text" id="responsible-department" name="responsible-department" value="Global Health and Social Medicine"></li>
+                    <li><strong>* Summary of project and considerations for reviewer:</strong><br>
+                        <textarea id="project-summary" name="project-summary" rows="5">Testing</textarea></li>
+                </ol>
+        
+                <h3>Trial Protocol Team Members</h3>
+                <ol>
+                    <li><strong>Protocol Team Members:</strong><br>
+                        <div>
+                            Roles Harvard-
+                            <input type="text" id="harvard-role" name="harvard-role">
+                            Name
+                            <input type="text" id="harvard-name" name="harvard-name">
+                            Harvard-E-Mail
+                            <input type="email" id="harvard-email" name="harvard-email">
+                            External-FName
+                            <input type="text" id="external-fname" name="external-fname">
+                            External-LName
+                            <input type="text" id="external-lname" name="external-lname">
+                            Affiliation
+                            <input type="text" id="affiliation" name="affiliation">
+                        </div>
+                    </li>
+                    <li><strong>Attach security or privacy training information as applicable:</strong><br>
+                        <input type="text" id="training-name" name="training-name">
+                        Version
+                        <input type="text" id="training-version" name="training-version"></li>
+                </ol>
+        
+                <h3>Trial Funding Sources</h3>
+                <ol>
+                    <li><strong>Funding Sources:</strong><br>
+                        <div>
+                            List any grant proposal that has been submitted to the sponsored programs office (SPA, ORA, or OSP), any proposal that was created in GMAS, or any federal or other sponsored funding supporting work captured in this submission:
+                            Project #
+                            <input type="text" id="project-number" name="project-number">
+                            Segment
+                            <input type="text" id="segment" name="segment">
+                            Status
+                            <input type="text" id="status" name="status">
+                            GMAS Link
+                            <input type="text" id="gmas-link" name="gmas-link">
+                        </div>
+                    </li>
+                    <li><strong>Will you use funding to purchase additional hardware or technology?</strong><br>
+                        <input type="radio" id="additional-funding-yes" name="additional-funding" value="Yes">
+                        <label for="additional-funding-yes">Yes</label>
+                        <input type="radio" id="additional-funding-no" name="additional-funding" value="No">
+                        <label for="additional-funding-no">No</label></li>
+                    <li><strong>Will technology expenses be ongoing?</strong><br>
+                        <input type="radio" id="ongoing-expenses-yes" name="ongoing-expenses" value="Yes">
+                        <label for="ongoing-expenses-yes">Yes</label>
+                        <input type="radio" id="ongoing-expenses-no" name="ongoing-expenses" value="No">
+                        <label for="ongoing-expenses-no">No</label></li>
+                    <li><strong>Does the funding include any additional storage and data management conditions?</strong><br>
+                        <input type="radio" id="additional-conditions-yes" name="additional-conditions" value="Yes">
+                        <label for="additional-conditions-yes">Yes</label>
+                        <input type="radio" id="additional-conditions-no" name="additional-conditions" value="No">
+                        <label for="additional-conditions-no">No</label></li>
+                </ol>
+        
+                <h3>Trial Data Information</h3>
+                <ol>
+                    <li><strong>Series or sets of data (multiple may be listed):</strong><br>
+                        Data Name
+                        <input type="text" id="data-name" name="data-name">
+                        Physical Media?
+                        <input type="text" id="physical-media" name="physical-media">
+                        Data Contract?
+                        <input type="text" id="data-contract" name="data-contract">
+                        Storage Behind Harvard Authentication?
+                        <input type="text" id="harvard-authentication" name="harvard-authentication">
+                        Encrypted Data?
+                        <input type="text" id="encrypted-data" name="encrypted-data">
+                        Third Party Sharing?
+                        <input type="text" id="third-party-sharing" name="third-party-sharing">
+                        Data Security Level
+                        <input type="text" id="security-level" name="security-level">
+                        Locations
+                        <input type="text" id="locations" name="locations">
+                    </li>
+                </ol>
+        
+                <h3>Trial Data Access</h3>
+                <ol>
+                    <li><strong>Methods of data access and collection (mark all that apply):</strong><br>
+                        <input type="text" id="access-methods" name="access-methods"></li>
+                    <li><strong>Use of data processing applications:</strong><br>
+                        <input type="text" id="processing-applications" name="processing-applications"></li>
+                    <li><strong>Will data be linked with other data sets?</strong><br>
+                        <input type="radio" id="data-linking-yes" name="data-linking" value="Yes">
+                        <label for="data-linking-yes">Yes</label>
+                        <input type="radio" id="data-linking-no" name="data-linking" value="No">
+                        <label for="data-linking-no">No</label></li>
+                    <li><strong>Is there a requirement for data destruction?</strong><br>
+                        <input type="radio" id="data-destruction-yes" name="data-destruction" value="Yes">
+                        <label for="data-destruction-yes">Yes</label>
+                        <input type="radio" id="data-destruction-no" name="data-destruction" value="No">
+                        <label for="data-destruction-no">No</label></li>
+                    <li><strong>Additional supporting documents:</strong><br>
+                        <input type="text" id="supporting-documents" name="supporting-documents"></li>
+                </ol>
+            </form>
+        </section>
+        
+    </main>
+
+    <footer>
+        <!-- Footer content here -->
+    </footer>
+
+    <script>
+        // Function to handle navigation clicks
+        function navigateToSection(event) {
+            event.preventDefault(); // Prevent default link behavior
+            
+            // Get the target section id from the href attribute
+            const targetId = event.target.getAttribute('href').substring(1);
+            
+            // Hide all sections
+            const sections = document.querySelectorAll('main > section');
+            sections.forEach(section => {
+                section.style.display = 'none';
+            });
+            
+            // Show the target section
+            const targetSection = document.getElementById(targetId);
+            if (targetSection) {
+                targetSection.style.display = 'block';
+            }
+        }
+
+        // Add click event listeners to all navigation links
+        const navLinks = document.querySelectorAll('nav a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', navigateToSection);
+        });
+    </script>
+</body>
+</html>

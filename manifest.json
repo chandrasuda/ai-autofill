@@ -1,21 +1,19 @@
 {
   "manifest_version": 2,
-  "name": "Document Question Answering Extension",
-  "version": "1.2",
-  "description": "Upload a document and have questions auto-filled on websites using AI copilot",
-  "permissions": ["activeTab", "storage", "unlimitedStorage"],
+  "name": "Document Question Answering",
+  "version": "1.0",
+  "description": "Upload documents and autofill forms using a local LLM model",
+  "permissions": ["activeTab", "storage"],
   "browser_action": {
     "default_popup": "popup.html"
   },
   "background": {
-    "scripts": ["background.js"]
+    "scripts": ["bundle.js"]
   },
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
       "js": ["content.js"]
     }
-  ],
-  "web_accessible_resources": ["model/*"]
+  ]
 }
-
