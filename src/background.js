@@ -1,7 +1,7 @@
-const openai = require('openai');
+import OpenAI from 'openai';
 
 async function callLLMModel(question, documentContent) {
-  const client = new openai.OpenAI('http://localhost:1234/v1', 'not-needed');
+  const client = new OpenAI('http://localhost:1234/v1', 'not-needed');
 
   const messages = [
     { role: 'system', content: 'You are a helpful assistant that provides concise and relevant answers based on the given context.' },

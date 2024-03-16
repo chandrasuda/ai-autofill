@@ -1,14 +1,15 @@
 {
-  "manifest_version": 2,
+  "manifest_version": 3,
   "name": "Document Question Answering",
   "version": "1.0",
   "description": "Upload documents and autofill forms using a local LLM model",
   "permissions": ["activeTab", "storage"],
-  "browser_action": {
-    "default_popup": "popup.html"
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "icon16.png"
   },
   "background": {
-    "scripts": ["bundle.js"]
+    "service_worker": "background.js"
   },
   "content_scripts": [
     {
