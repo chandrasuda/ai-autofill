@@ -1,0 +1,12 @@
+{
+    "manifest_version": 3,
+    "name": "Input Logger",
+    "version": "1.0",
+    "description": "Logs input from a textarea to the console",
+    "action": {
+      "default_popup": "popup.html"
+    },
+    "background": {
+      "service_worker": "background.js"
+    }
+  }

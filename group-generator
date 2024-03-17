@@ -1,0 +1,41 @@
+import random
+
+def generate_groups(students, num_groups):
+    if num_groups > len(students):
+        print("Error: Number of groups cannot be greater than the number of students.")
+        return
+
+    random.shuffle(students)
+    groups = []
+    group_size = len(students) // num_groups
+
+    for i in range(num_groups):
+        group = students[i * group_size : (i + 1) * group_size]
+        groups.append(group)
+
+    return groups
+
+def generate_tasks(groups):
+    tasks = []
+    for group in groups:
+        group_tasks = []
+        for i, student in enumerate(group):
+            task = f"Task {i+1} - {student}"
+            group_tasks.append(task)
+        tasks.append(group_tasks)
+    return tasks
+
+def main():
+    students = input("Enter the student names (comma-separated): ").split(",")
+    num_groups = int(input("Enter the number of groups: "))
+
+    groups = generate_groups(students, num_groups)
+    tasks = generate_tasks(groups)
+
+    for i, group in enumerate(groups):
+        print(f"Group {i+1}: {group}")
+        print(f"Tasks: {tasks[i]}")
+        print()
+
+if __name__ == "__main__":
+    main()

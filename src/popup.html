@@ -1,27 +1,82 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Document Question Answering</title>
-    <style>
-      body {
-        width: 300px;
-        padding: 10px;
-        font-family: Arial, sans-serif;
-      }
-      input[type="file"] {
-        margin-bottom: 10px;
-      }
-    </style>
-  </head>
-  <body>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document Question Answering</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      padding: 20px;
+      color: #333;
+    }
+
+    h3 {
+      color: #007bff;
+    }
+
+    .container {
+      width: 370px; /* Fixed width */
+      margin: 0 auto;
+      background-color: #fff;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    textarea {
+      width: calc(100% - 40px); /* Adjusted width to include padding */
+      height: 400px; /* Fixed height */
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      resize: vertical; /* Allow vertical resizing */
+      overflow-y: auto; /* Enable vertical scrollbar if needed */
+      display: block;
+      box-sizing: border-box;
+    }
+
+    #uploadButton,
+    #autoFillButton {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    #uploadButton:hover,
+    #autoFillButton:hover {
+      background-color: #0056b3;
+    }
+
+    #status {
+      margin-top: 20px;
+      font-size: 14px;
+    }
+
+    #uploadedText {
+      margin-top: 20px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
     <h3>Upload Document</h3>
-    <input type="file" id="fileInput" />
+    <textarea id="textArea" placeholder="Paste your text here..."></textarea>
     <button id="uploadButton">Upload</button>
+    <button id="autoFillButton">Auto-Fill</button>
     <div id="status"></div>
-    <button id="autofillButton" disabled>Autofill Fields</button>
-    <!-- Include the OpenAI library -->
-    <script src="https://cdn.jsdelivr.net/npm/openai"></script>
-    <!-- Include your popup.js script -->
-    <script src="popup.js"></script>
-  </body>
+    <div id="uploadedText"></div>
+  </div>
+  <script src="popup.js"></script>
+</body>
 </html>

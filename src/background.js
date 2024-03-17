@@ -1,40 +1,46 @@
-import OpenAI from 'openai';
-
 async function callLLMModel(question, documentContent) {
-  const client = new OpenAI('http://localhost:1234/v1', 'not-needed');
+  const endpoint = 'http://localhost:1234/v1/chat/completions';
+  const queryParams = new URLSearchParams({
+    messages: JSON.stringify([
+      { role: 'system', content: 'Provide a relevant answer based on the given context.' },
+      { role: 'user', content: question }
+    ]),
+    temperature: 0.7,
+    max_tokens: -1,
+    stream: false
+  });
 
-  const messages = [
-    { role: 'system', content: 'You are a helpful assistant that provides concise and relevant answers based on the given context.' },
-    { role: 'user', content: question },
-    { role: 'context', content: documentContent },
-  ];
+  const response = await fetch(`${endpoint}?${queryParams}`, {
+    method: 'GET',
+    headers: { 'Content-Type': 'application/json' }
+  });
 
-  const completion = await client.chat.completions.create(
-    {
-      model: 'local-model',
-      messages: messages,
-      temperature: 0.7,
-      max_tokens: 1, // Limit to one-word answers
-      stop: ['\n'], // Stop generation at new lines to ensure only one word
-    },
-    {
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    }
-  );
+  if (!response.ok) {
+    throw new Error('Failed to get answer');
+  }
 
-  const answer = completion.choices[0].message.content.trim(); // Trim any leading/trailing spaces
-  return answer;
+  const data = await response.json();
+  return data.choices[0].message.content.trim();
 }
 
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
-  if (request.action === 'getAnswer') {
-    chrome.storage.local.get('fileContent', (data) => {
+  if (request.action === 'uploadText') {
+    const { text } = request;
+    console.log('Uploaded Text:', text); // Log the uploaded text
+
+    chrome.storage.local.set({ fileContent: text }, () => {
+      // Send confirmation after storage update
+      sendResponse({ success: true });
+    });
+
+    // Return true to indicate that sendResponse will be called asynchronously
+    return true;
+  } else if (request.action === 'getAnswer') {
+    chrome.storage.local.get('fileContent', async (data) => {
       const documentContent = data.fileContent || '';
-      const answer = callLLMModel(request.question, documentContent);
+      const answer = await callLLMModel(request.question, documentContent);
       sendResponse({ answer });
     });
+    return true; // Already using async handling
   }
-  return true;
 });
