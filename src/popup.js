@@ -24,24 +24,9 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     autoFillButton.addEventListener('click', function() {
-      chrome.storage.local.get('fileContent', async (data) => {
-        const documentContent = data.fileContent || '';
-        const labels = Array.from(document.querySelectorAll('label'));
-
-        for (const label of labels) {
-          const question = label.textContent.trim();
-          const input = label.nextElementSibling;
-          if (input && input.tagName === 'INPUT') {
-            try {
-              const answer = await callLLMModel(question, documentContent);
-              input.value = answer;
-            } catch (error) {
-              console.error('Error autofilling input:', error);
-            }
-          }
-        }
-        status.textContent = 'Auto-Fill complete.';
-      });
+      // Send message to background script to trigger autofill
+      chrome.runtime.sendMessage({ action: 'autofillTextFields' });
+      status.textContent = 'Auto-Fill triggered.';
     });
   } else {
     console.error('One or more elements not found.');

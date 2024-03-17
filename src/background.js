@@ -35,11 +35,22 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 
     // Return true to indicate that sendResponse will be called asynchronously
     return true;
-  } else if (request.action === 'getAnswer') {
+  } else if (request.action === 'autofillFields') {
     chrome.storage.local.get('fileContent', async (data) => {
-      const documentContent = data.fileContent || '';
-      const answer = await callLLMModel(request.question, documentContent);
-      sendResponse({ answer });
+      const uploadedText = data.fileContent || ''; // Retrieve uploaded text or use empty string
+      
+      // Execute script in the active tab to autofill input fields with the uploaded text
+      chrome.tabs.executeScript({
+        code: `
+          const inputFields = Array.from(document.querySelectorAll('input[type="text"], textarea'));
+          inputFields.forEach(input => {
+            input.value = '${uploadedText}';
+          });
+          console.log("Input fields autofilled with uploaded text.");
+        `
+      });
+
+      sendResponse({ success: true });
     });
     return true; // Already using async handling
   }
