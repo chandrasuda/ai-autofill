@@ -3,6 +3,7 @@ async function callLLMModel(question, documentContent) {
   const queryParams = new URLSearchParams({
     messages: JSON.stringify([
       { role: 'system', content: 'Provide a relevant answer based on the given context.' },
+      { role: 'model', content: "llm" }
       { role: 'user', content: question }
     ]),
     temperature: 0.7,
